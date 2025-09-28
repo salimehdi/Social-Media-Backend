@@ -1,0 +1,430 @@
+{
+	"info": {
+		"_postman_id": "31fb2e3b-e149-4af2-aef4-0f21d2c89599",
+		"name": "SocialMediaApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38040489"
+	},
+	"item": [
+		{
+			"name": "User API's",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"johndoe\",\r\n    \"email\": \"john@example.com\",\r\n    \"password\": \"password123\",\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"bio\": \"Just a regular user\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/auth/register",
+						"description": "Generated from cURL: curl -X POST http://localhost:8080/api/auth/register \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"username\": \"johndoe\",\r\n    \"email\": \"john@example.com\",\r\n    \"password\": \"password123\",\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"bio\": \"Just a regular user\"\r\n  }'"
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usernameOrEmail\": \"johndoe\",\n    \"password\": \"password123\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/auth/login",
+						"description": "Generated from cURL: curl -X POST http://localhost:8080/api/auth/login \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"usernameOrEmail\": \"johndoe\",\n    \"password\": \"password123\"\n  }'"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Profile API",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							}
+						],
+						"url": "http://localhost:8080/users/{userId}",
+						"description": "Generated from cURL: curl -X GET http://localhost:8080/users/{userId} \\\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				},
+				{
+					"name": "Update User API",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Updated John\",\r\n    \"lastName\": \"Updated Doe\",\r\n    \"bio\": \"Updated bio\",\r\n    \"isPrivate\": false\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/users/{userId}",
+						"description": "Generated from cURL: curl -X PUT http://localhost:8080/users/{userId} \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\" \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"firstName\": \"Updated John\",\r\n    \"lastName\": \"Updated Doe\",\r\n    \"bio\": \"Updated bio\",\r\n    \"isPrivate\": false\r\n  }'"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User API",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							}
+						],
+						"url": "http://localhost:8080/users/{userId}",
+						"description": "Generated from cURL: curl -X DELETE http://localhost:8080/users/{userId} \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				},
+				{
+					"name": "Block User API",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							}
+						],
+						"url": "http://localhost:8080/users/block/{userIdToBlock}",
+						"description": "Generated from cURL: curl -X POST http://localhost:8080/users/block/{userIdToBlock} \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				},
+				{
+					"name": "Follow User API",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							}
+						],
+						"url": "http://localhost:8080/users/follow/{userIdToFollow}",
+						"description": "Generated from cURL: curl -X POST http://localhost:8080/users/follow/{userIdToFollow} \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				},
+				{
+					"name": "Unfollow User API",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							}
+						],
+						"url": "http://localhost:8080/users/unfollow/{userIdToFollow}",
+						"description": "Generated from cURL: curl -X POST http://localhost:8080/users/unfollow/{userIdToFollow} \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				},
+				{
+					"name": "Accept Follow Request API",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							}
+						],
+						"url": "http://localhost:8080/users/accept/{userIdToFollow}",
+						"description": "Generated from cURL: curl -X POST http://localhost:8080/users/accept/{userIdToFollow} \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Follow Requests API",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							}
+						],
+						"url": "http://localhost:8080/users/getrequests",
+						"description": "Generated from cURL: curl -X GET http://localhost:8080/users/getrequests \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				},
+				{
+					"name": "Get All User Posts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							}
+						],
+						"url": "http://localhost:8080/users/{userId}/posts",
+						"description": "Generated from cURL: curl -X GET http://localhost:8080/users/{userId}/posts \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post API's",
+			"item": [
+				{
+					"name": "Create Post API",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"This is my first post!\",\r\n    \"mediaUrls\": [\"https://example.com/image1.jpg\"],\r\n    \"location\": \"New York, NY\",\r\n    \"tags\": [\"#firstpost\", \"#excited\"],\r\n    \"visibility\": \"PUBLIC\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/posts/{userId}",
+						"description": "Generated from cURL: curl -X POST http://localhost:8080/posts/{userId} \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\" \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"content\": \"This is my first post!\",\r\n    \"mediaUrls\": [\"https://example.com/image1.jpg\"],\r\n    \"location\": \"New York, NY\",\r\n    \"tags\": [\"#firstpost\", \"#excited\"],\r\n    \"visibility\": \"PUBLIC\"\r\n  }'"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post API",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							}
+						],
+						"url": "http://localhost:8080/posts/{postId}",
+						"description": "Generated from cURL: curl -X GET http://localhost:8080/posts/{postId} \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post API",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							}
+						],
+						"url": "http://localhost:8080/posts/{postId}",
+						"description": "Generated from cURL: curl -X DELETE http://localhost:8080/posts/{postId} \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				},
+				{
+					"name": "Like Post API",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							}
+						],
+						"url": "http://localhost:8080/posts/like/{postId}",
+						"description": "Generated from cURL: curl -X POST http://localhost:8080/posts/like/{postId} \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post Comments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							}
+						],
+						"url": "http://localhost:8080/posts/comments/{postId}",
+						"description": "Generated from cURL: curl -X GET http://localhost:8080/posts/comments/{postId} \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Posts API",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/posts?pageNumber=0&pageSize=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"posts"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						},
+						"description": "Generated from cURL: curl -X GET \"http://localhost:8080/posts?pageNumber=0&pageSize=10\" \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment API's",
+			"item": [
+				{
+					"name": "Create Comment API",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"Great post! Thanks for sharing.\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/posts/{postId}/comments",
+						"description": "Generated from cURL: curl -X POST http://localhost:8080/posts/{postId}/comments \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\" \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"content\": \"Great post! Thanks for sharing.\"\r\n  }'"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment API",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							}
+						],
+						"url": "http://localhost:8080/posts/comments/{commentId}",
+						"description": "Generated from cURL: curl -X DELETE http://localhost:8080/posts/comments/{commentId} \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				},
+				{
+					"name": "Reply Comment API",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"I totally agree with your comment!\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/comments/{commentId}/reply",
+						"description": "Generated from cURL: curl -X POST http://localhost:8080/comments/{commentId}/reply \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\" \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"content\": \"I totally agree with your comment!\"\r\n  }'"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Reply API",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN"
+							}
+						],
+						"url": "http://localhost:8080/comments/reply/{replyId}",
+						"description": "Generated from cURL: curl -X DELETE http://localhost:8080/comments/reply/{replyId} \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
